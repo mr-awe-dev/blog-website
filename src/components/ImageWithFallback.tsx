@@ -12,7 +12,7 @@ const ImageWithFallback: React.FC<ImageWithFallbackProps> = ({
   className,
   fallbackIcon,
   zoomOnHover = false,
-  ...props
+  // ...props
 }) => {
   const [hasError, setHasError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -32,7 +32,7 @@ const ImageWithFallback: React.FC<ImageWithFallbackProps> = ({
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.4 }}
+        // transition={{ duration: 0.4 }}
         // will-change-transform memaksa GPU acceleration agar smooth
         className={`relative bg-gradient-to-br from-green-50 via-emerald-50 to-green-100 flex flex-col items-center justify-center overflow-hidden will-change-transform ${className}`}
         whileHover={zoomOnHover ? { scale: 1.1 } : undefined}
@@ -109,7 +109,7 @@ const ImageWithFallback: React.FC<ImageWithFallbackProps> = ({
         }}
         onError={handleError}
         onLoad={handleLoad}
-        {...props}
+        // {...props}
       />
     </>
   );

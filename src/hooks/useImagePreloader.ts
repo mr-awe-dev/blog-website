@@ -5,7 +5,7 @@ export const useImagePreloader = (imageUrls: string[]): boolean => {
 
   useEffect(() => {
     let mounted = true;
-    let loadedCount = 0;
+    // let loadedCount = 0;
 
     const preloadImage = (url: string): Promise<void> => {
       return new Promise((resolve, reject) => {

@@ -183,7 +183,7 @@ const Header: React.FC = () => {
             className="md:hidden mt-2 bg-white border border-gray-200 rounded-2xl p-4 shadow-lg overflow-hidden"
           >
             <nav className="flex flex-col gap-3">
-              {navItems.map((item, idx) => {
+              {navItems.map((item) => {
                 const isActive = location.pathname === item.path;
                 return (
                   <Link
