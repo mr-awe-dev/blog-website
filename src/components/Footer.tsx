@@ -6,7 +6,10 @@ const Footer: React.FC = () => {
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   return (
-    <footer ref={ref} className="bg-dark text-white">
+    <footer
+      ref={ref}
+      className="glass-strong border-t border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white relative z-10"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-6 py-8 sm:py-12 lg:py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10">
           {/* Brand */}
@@ -18,19 +21,22 @@ const Footer: React.FC = () => {
           >
             <div className="flex items-center gap-2 mb-2 sm:mb-3">
               <motion.div
-                whileHover={{ rotate: 360 }}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-                className="w-6 h-6 sm:w-8 sm:h-8 bg-primary rounded-full flex items-center justify-center"
+                whileHover={{ y: -3 }}
+                className="p-4 rounded-2xl glass border border-slate-200 hover:glass-strong transition-colors"
               >
                 <svg
                   width="14"
                   height="14"
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke="white"
+                  stroke="currentColor"
                   strokeWidth="2.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
+                  className="text-primary"
                 >
                   <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10" />
                   <path d="M12 2c3 3 4.5 6.5 4.5 10" />
@@ -40,11 +46,11 @@ const Footer: React.FC = () => {
                 Agrob
               </span>
             </div>
-            <p className="text-gray-400 text-xs sm:text-sm mb-3 sm:mb-4">
+            <p className="text-slate-500 dark:text-slate-400 text-xs sm:text-sm mb-3 sm:mb-4">
               Your one-stop solution to all needs!
             </p>
-            <div className="flex items-center gap-2 text-gray-400 text-xs sm:text-sm">
-              <div className="w-6 h-6 sm:w-8 sm:h-8 bg-dark-light rounded-full flex items-center justify-center flex-shrink-0">
+            <div className="flex items-center gap-2 text-slate-500 dark:text-slate-400 text-xs sm:text-sm">
+              <div className="w-6 h-6 sm:w-8 sm:h-8 bg-white/5 rounded-full flex items-center justify-center flex-shrink-0 border border-white/10">
                 <svg
                   width="10"
                   height="10"
@@ -74,7 +80,7 @@ const Footer: React.FC = () => {
                 ease: [0.25, 0.1, 0.25, 1],
               }}
             >
-              <h4 className="font-semibold text-white mb-2 sm:mb-3 text-xs sm:text-base">
+              <h4 className="font-semibold text-slate-900 dark:text-white mb-2 sm:mb-3 text-xs sm:text-base">
                 Company
               </h4>
               <ul className="space-y-1.5 sm:space-y-2">
@@ -91,7 +97,7 @@ const Footer: React.FC = () => {
                     >
                       <a
                         href="#"
-                        className="text-gray-400 text-xs sm:text-sm hover:text-white transition-colors block"
+                        className="text-slate-500 dark:text-slate-400 text-xs sm:text-sm hover:text-primary transition-colors block"
                       >
                         {item}
                       </a>
@@ -110,7 +116,7 @@ const Footer: React.FC = () => {
                 ease: [0.25, 0.1, 0.25, 1],
               }}
             >
-              <h4 className="font-semibold text-white mb-2 sm:mb-3 text-xs sm:text-base">
+              <h4 className="font-semibold text-slate-900 dark:text-white mb-2 sm:mb-3 text-xs sm:text-base">
                 Support
               </h4>
               <ul className="space-y-1.5 sm:space-y-2">
@@ -122,7 +128,7 @@ const Footer: React.FC = () => {
                   >
                     <a
                       href="#"
-                      className="text-gray-400 text-xs sm:text-sm hover:text-white transition-colors block"
+                      className="text-slate-500 dark:text-slate-400 text-xs sm:text-sm hover:text-primary transition-colors block"
                     >
                       {item}
                     </a>
@@ -142,12 +148,11 @@ const Footer: React.FC = () => {
               ease: [0.25, 0.1, 0.25, 1],
             }}
           >
-            <h4 className="font-semibold text-white mb-2 sm:mb-3 text-xs sm:text-base">
+            <h4 className="font-semibold text-slate-900 dark:text-white mb-2 sm:mb-3 text-xs sm:text-base">
               Newsletter
             </h4>
             <motion.div
-              whileHover={{ scale: 1.01 }}
-              className="flex items-center bg-dark-light rounded-full px-3 sm:px-4 py-2 sm:py-2.5 mb-3 sm:mb-4"
+              className="flex items-center glass border border-slate-200 dark:border-slate-700 rounded-full px-3 sm:px-4 py-2 sm:py-2.5 mb-3 sm:mb-4 shadow-sm"
             >
               <svg
                 width="12"
@@ -166,19 +171,19 @@ const Footer: React.FC = () => {
               <input
                 type="email"
                 placeholder="Enter your email here"
-                className="bg-transparent text-xs sm:text-sm text-white placeholder-gray-400 outline-none flex-1 min-w-0"
+                className="bg-transparent text-xs sm:text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 outline-none flex-1 min-w-0"
               />
               <motion.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
-                className="w-5 h-5 sm:w-7 sm:h-7 bg-primary rounded-full flex items-center justify-center ml-2 hover:bg-primary-dark transition-colors flex-shrink-0"
+                className="w-5 h-5 sm:w-7 sm:h-7 bg-primary rounded-full flex items-center justify-center ml-2 hover:bg-primary-dark transition-colors flex-shrink-0 shadow-md text-white"
               >
                 <svg
                   width="8"
                   height="8"
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke="white"
+                  stroke="currentColor"
                   strokeWidth="2.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -203,7 +208,7 @@ const Footer: React.FC = () => {
                     }}
                     whileHover={{ scale: 1.15, y: -2 }}
                     whileTap={{ scale: 0.9 }}
-                    className="w-6 h-6 sm:w-8 sm:h-8 border border-gray-600 rounded-full flex items-center justify-center hover:border-primary transition-colors flex-shrink-0"
+                    className="w-6 h-6 sm:w-8 sm:h-8 border border-slate-300 dark:border-slate-600 rounded-full flex items-center justify-center hover:border-primary hover:text-primary transition-colors flex-shrink-0 text-slate-400 dark:text-slate-500"
                   >
                     <SocialIcon name={social} />
                   </motion.a>
@@ -215,15 +220,15 @@ const Footer: React.FC = () => {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-gray-700">
+      <div className="border-t border-slate-200 dark:border-slate-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-6 py-3 sm:py-4 flex flex-col sm:flex-row items-center justify-between gap-2">
-          <p className="text-gray-400 text-[10px] sm:text-xs text-center sm:text-left">
-            ©2024, <span className="text-primary">Agrob</span> | All right
+          <p className="text-slate-500 dark:text-slate-400 text-[10px] sm:text-xs text-center sm:text-left">
+            ©2027, <span className="text-primary">Agrob</span> | All right
             reserved.
           </p>
           <a
             href="#"
-            className="text-gray-400 text-[10px] sm:text-xs hover:text-white transition-colors"
+            className="text-slate-500 dark:text-slate-400 text-[10px] sm:text-xs hover:text-primary transition-colors"
           >
             Terms of Service
           </a>

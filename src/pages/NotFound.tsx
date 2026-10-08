@@ -64,11 +64,11 @@ const NotFound: React.FC = () => {
   return (
     <div
       ref={containerRef}
-      className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-lime-50 relative overflow-hidden flex items-center justify-center px-4"
+      className="min-h-screen bg-slate-50 relative overflow-hidden flex items-center justify-center px-4"
     >
       {/* Animated Background Gradient Blobs */}
       <motion.div
-        className="absolute top-0 left-0 w-96 h-96 bg-green-200/40 rounded-full blur-3xl"
+        className="absolute top-0 left-0 w-96 h-96 bg-emerald-200/40 rounded-full blur-3xl"
         animate={{
           x: [0, 100, 0],
           y: [0, 50, 0],
@@ -77,7 +77,7 @@ const NotFound: React.FC = () => {
         transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
-        className="absolute bottom-0 right-0 w-96 h-96 bg-lime-200/40 rounded-full blur-3xl"
+        className="absolute bottom-0 right-0 w-96 h-96 bg-teal-200/40 rounded-full blur-3xl"
         animate={{
           x: [0, -100, 0],
           y: [0, -50, 0],
@@ -86,7 +86,7 @@ const NotFound: React.FC = () => {
         transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
-        className="absolute top-1/2 left-1/2 w-72 h-72 bg-emerald-200/30 rounded-full blur-3xl"
+        className="absolute top-1/2 left-1/2 w-72 h-72 bg-green-200/30 rounded-full blur-3xl"
         animate={{
           scale: [1, 1.5, 1],
           opacity: [0.3, 0.6, 0.3],
@@ -119,7 +119,7 @@ const NotFound: React.FC = () => {
             height={leaf.size}
             viewBox="0 0 24 24"
             fill="none"
-            className="text-green-400/60"
+            className="text-primary/60"
           >
             <path
               d="M12 2C7 2 3 6 3 11c0 3 2 5 4 6-1-2-1-4 0-6 1-2 3-3 5-3s4 1 5 3c1 2 1 4 0 6 2-1 4-3 4-6 0-5-4-9-9-9z"
@@ -150,16 +150,9 @@ const NotFound: React.FC = () => {
           <div className="relative inline-block">
             {/* Shadow/Outline Layer */}
             <motion.h1
-              className="text-[180px] sm:text-[220px] lg:text-[280px] font-black leading-none select-none"
-              style={{
-                background:
-                  "linear-gradient(135deg, #7CB342 0%, #C5E17A 50%, #7CB342 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundSize: "200% 200%",
-              }}
+              className="text-[180px] sm:text-[220px] lg:text-[280px] font-black leading-none select-none text-primary drop-shadow-lg"
               animate={{
-                backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+                scale: [1, 1.02, 1],
               }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
             >
@@ -177,7 +170,7 @@ const NotFound: React.FC = () => {
                 {/* Stem - wilted */}
                 <motion.path
                   d="M30 75 Q35 50 25 30 Q20 20 25 10"
-                  stroke="#7CB342"
+                  stroke="#10B981"
                   strokeWidth="3"
                   fill="none"
                   strokeLinecap="round"
@@ -188,14 +181,14 @@ const NotFound: React.FC = () => {
                 {/* Wilted leaves */}
                 <motion.path
                   d="M25 30 Q15 25 10 30 Q15 35 25 30"
-                  fill="#C5E17A"
+                  fill="#059669"
                   initial={{ opacity: 0, scale: 0 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 1.5, duration: 0.5 }}
                 />
                 <motion.path
                   d="M27 20 Q37 15 42 20 Q37 25 27 20"
-                  fill="#AED581"
+                  fill="#10B981"
                   initial={{ opacity: 0, scale: 0 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 1.7, duration: 0.5 }}
@@ -223,7 +216,7 @@ const NotFound: React.FC = () => {
           className="mb-8"
         >
           <motion.h2
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4"
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-4"
             initial={{ opacity: 0 }}
             animate={mounted ? { opacity: 1 } : {}}
             transition={{ delay: 0.5 }}
@@ -238,7 +231,7 @@ const NotFound: React.FC = () => {
             </motion.span>
           </motion.h2>
           <motion.p
-            className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed"
+            className="text-slate-600 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed"
             initial={{ opacity: 0 }}
             animate={mounted ? { opacity: 1 } : {}}
             transition={{ delay: 0.7 }}
@@ -262,13 +255,13 @@ const NotFound: React.FC = () => {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Cari halaman..."
-              className="w-full px-6 py-4 pr-14 rounded-full bg-white border-2 border-green-200 focus:border-green-400 focus:outline-none shadow-lg text-gray-700 placeholder-gray-400 transition-colors"
+              className="w-full px-6 py-4 pr-14 rounded-full glass focus:border-primary focus:outline-none shadow-sm text-slate-900 placeholder-slate-400 transition-colors"
             />
             <motion.button
               type="submit"
               whileHover={{ scale: 1.1, rotate: 90 }}
               whileTap={{ scale: 0.9 }}
-              className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white shadow-md"
+              className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white shadow-md hover:bg-primary-dark transition-colors"
             >
               <svg
                 width="18"
@@ -305,7 +298,7 @@ const NotFound: React.FC = () => {
               >
                 <Link
                   to={page.path}
-                  className="inline-block px-5 py-2.5 bg-white border border-green-200 rounded-full text-sm font-medium text-gray-700 hover:border-primary hover:text-primary hover:shadow-md transition-all"
+                  className="inline-block px-5 py-2.5 glass-strong rounded-full text-sm font-medium text-slate-700 hover:border-primary hover:text-primary hover:shadow-md transition-all"
                 >
                   {page.name}
                 </Link>
@@ -324,7 +317,7 @@ const NotFound: React.FC = () => {
             onClick={() => navigate("/")}
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-green-500 to-lime-500 text-white rounded-full font-semibold shadow-xl hover:shadow-2xl transition-shadow"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-white rounded-full font-semibold shadow-md hover:shadow-lg hover:bg-primary-dark transition-all"
           >
             <motion.svg
               width="20"
@@ -368,11 +361,11 @@ const NotFound: React.FC = () => {
             cx="40"
             cy="40"
             r="35"
-            stroke="#7CB342"
+            stroke="#10B981"
             strokeWidth="2"
             strokeDasharray="4 4"
           />
-          <circle cx="40" cy="40" r="20" fill="#C5E17A" opacity="0.3" />
+          <circle cx="40" cy="40" r="20" fill="#059669" opacity="0.1" />
         </svg>
       </motion.div>
 
@@ -389,7 +382,7 @@ const NotFound: React.FC = () => {
             width="60"
             height="60"
             rx="15"
-            stroke="#7CB342"
+            stroke="#10B981"
             strokeWidth="2"
             strokeDasharray="4 4"
           />
@@ -399,8 +392,8 @@ const NotFound: React.FC = () => {
             width="30"
             height="30"
             rx="8"
-            fill="#C5E17A"
-            opacity="0.3"
+            fill="#059669"
+            opacity="0.1"
           />
         </svg>
       </motion.div>

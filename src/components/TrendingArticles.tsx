@@ -61,7 +61,7 @@ const TrendingArticles: React.FC = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-          className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 sm:mb-4"
+          className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 dark:text-white mb-3 sm:mb-4"
         >
           Our Trending Article
         </motion.h2>
@@ -69,7 +69,7 @@ const TrendingArticles: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
-          className="text-gray-500 text-xs sm:text-sm leading-relaxed max-w-3xl"
+          className="text-slate-600 dark:text-slate-300 text-xs sm:text-sm leading-relaxed max-w-3xl"
         >
           Common trends Lorem Ipsum is simply dummy text of the printing and
           typesetting industry. Lorem Ipsum has been the industry's standard

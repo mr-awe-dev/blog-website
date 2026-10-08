@@ -32,17 +32,15 @@ const ImageWithFallback: React.FC<ImageWithFallbackProps> = ({
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        // transition={{ duration: 0.4 }}
-        // will-change-transform memaksa GPU acceleration agar smooth
-        className={`relative bg-gradient-to-br from-green-50 via-emerald-50 to-green-100 flex flex-col items-center justify-center overflow-hidden will-change-transform ${className}`}
-        whileHover={zoomOnHover ? { scale: 1.1 } : undefined}
+        className={`relative bg-white/40 backdrop-blur-md border border-white/50 flex flex-col items-center justify-center overflow-hidden will-change-transform ${className}`}
+        whileHover={zoomOnHover ? { scale: 1.05 } : undefined}
         transition={
           zoomOnHover ? { duration: 0.7, ease: "easeOut" } : undefined
         }
       >
         {/* Pattern Background */}
         <div
-          className="absolute inset-0 opacity-10"
+          className="absolute inset-0 opacity-20"
           style={{
             backgroundImage: "radial-gradient(#7CB342 1px, transparent 1px)",
             backgroundSize: "16px 16px",
@@ -51,9 +49,8 @@ const ImageWithFallback: React.FC<ImageWithFallbackProps> = ({
 
         {/* Fallback Icon dengan efek parallax kecil saat zoom */}
         <motion.div
-          className="relative z-10 text-green-400"
+          className="relative z-10 text-[#7CB342]"
           animate={zoomOnHover ? { scale: 0.9 } : { scale: 1 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
         >
           {fallbackIcon || (
             <svg
@@ -73,11 +70,7 @@ const ImageWithFallback: React.FC<ImageWithFallbackProps> = ({
           )}
         </motion.div>
 
-        <motion.span
-          className="relative z-10 mt-2 text-xs font-medium text-green-600/60"
-          animate={zoomOnHover ? { opacity: 0.5 } : { opacity: 1 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-        >
+        <motion.span className="relative z-10 mt-2 text-xs font-medium text-gray-500">
           Image not available
         </motion.span>
       </motion.div>
@@ -86,19 +79,16 @@ const ImageWithFallback: React.FC<ImageWithFallbackProps> = ({
 
   return (
     <>
-      {/* Skeleton Loading State */}
       {isLoading && (
         <div
-          className={`absolute inset-0 bg-gray-100 animate-pulse ${className}`}
+          className={`absolute inset-0 bg-white/50 backdrop-blur-sm animate-pulse ${className}`}
         />
       )}
-
-      {/* Actual Image - Gunakan motion.img untuk animasi yang smooth */}
       <motion.img
         src={src}
         alt={alt}
         className={`${className} will-change-transform`}
-        initial={{ opacity: 0, scale: 1 }}
+        initial={{ opacity: 0, scale: 1.05 }}
         animate={{ opacity: isLoading ? 0 : 1, scale: 1 }}
         whileHover={zoomOnHover ? { scale: 1.1 } : undefined}
         transition={{
@@ -109,7 +99,6 @@ const ImageWithFallback: React.FC<ImageWithFallbackProps> = ({
         }}
         onError={handleError}
         onLoad={handleLoad}
-        // {...props}
       />
     </>
   );

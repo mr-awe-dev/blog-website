@@ -15,16 +15,13 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
 }) => {
   return (
     <motion.div
-      className="bg-white rounded-xl overflow-hidden group cursor-pointer border border-gray-100 shadow-sm"
-      whileHover={{
-        y: -8,
-        boxShadow:
-          "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
-      }}
+      // GLASSMORPHISM UPGRADE: Dibikin terpisah antara gambar dan konten
+      className="flex flex-col gap-3 sm:gap-4 group cursor-pointer relative"
+      whileHover={{ y: -8 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
     >
       {/* Image Container */}
-      <div className="overflow-hidden relative">
+      <div className="glass rounded-2xl overflow-hidden relative group-hover:glass-strong transition-all duration-300 shadow-sm z-10">
         <ImageWithFallback
           src={image}
           alt={title}
@@ -52,26 +49,23 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
       </div>
 
       {/* Content Container */}
-      <div className="pt-4 sm:pt-5 pb-4 px-4 sm:px-5">
-        <h3 className="text-sm sm:text-base font-semibold text-gray-900 leading-snug mb-2 line-clamp-2">
+      <div className="glass rounded-2xl p-4 sm:p-5 relative z-10 group-hover:glass-strong transition-all duration-300 shadow-sm flex flex-col justify-between h-full">
+        <h3 className="text-sm sm:text-base font-semibold text-slate-900 dark:text-white leading-snug mb-2 line-clamp-2">
           {title}
         </h3>
-
-        <p className="text-xs sm:text-sm text-gray-500 leading-relaxed mb-4 line-clamp-3">
+        <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4 line-clamp-3">
           {description}
         </p>
 
         <motion.a
           href="#"
-          className="text-xs sm:text-sm text-gray-700 font-medium flex items-center gap-1.5 hover:text-primary"
+          className="text-xs sm:text-sm text-primary font-semibold flex items-center gap-1.5 group/link"
           whileHover={{ x: 4 }}
-          transition={{ type: "spring", stiffness: 400, damping: 20 }}
         >
           Learn more
           <motion.span
-            className="w-5 h-5 sm:w-6 sm:h-6 bg-primary rounded-full flex items-center justify-center"
+            className="w-5 h-5 sm:w-6 sm:h-6 bg-primary/10 rounded-full flex items-center justify-center group-hover/link:bg-primary transition-colors duration-300"
             whileHover={{ rotate: 45 }}
-            transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
           >
             <svg
               width="10"

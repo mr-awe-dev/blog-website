@@ -86,7 +86,7 @@ const HeroSection: React.FC = () => {
               ease: [0.25, 0.1, 0.25, 1],
               delay: isInitialLoad ? 0 : 0.1,
             }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight"
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white leading-tight"
           >
             Sustainable Future
             <br />
@@ -103,7 +103,7 @@ const HeroSection: React.FC = () => {
           }}
           className="lg:w-1/2 flex flex-col justify-center"
         >
-          <p className="text-gray-500 text-xs sm:text-sm leading-relaxed max-w-md">
+          <p className="text-slate-600 dark:text-slate-300 text-xs sm:text-sm leading-relaxed max-w-md">
             We share common trends and strategies for improving your rental
             making sure in high demand of service unique blocks, you can nd
             making sure you stay.
@@ -148,7 +148,7 @@ const HeroSection: React.FC = () => {
         }}
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
-        className="relative rounded-xl sm:rounded-2xl overflow-hidden"
+        className="relative rounded-xl sm:rounded-2xl overflow-hidden glass shadow-[0_8px_32px_rgba(0,0,0,0.05)]"
       >
         <div className="relative w-full h-[200px] sm:h-[300px] lg:h-[400px] xl:h-[450px]">
           <AnimatePresence mode="sync">
@@ -169,8 +169,8 @@ const HeroSection: React.FC = () => {
             </motion.div>
           </AnimatePresence>
 
-          {/* Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
+          {/* Overlay dihapus karena menghindari gradasi */}
+          <div className="absolute inset-0 bg-black/10 pointer-events-none" />
 
           {/* Progress Bar */}
           <div className="absolute bottom-0 left-0 right-0 h-1 bg-black/20">
@@ -189,7 +189,7 @@ const HeroSection: React.FC = () => {
               setProgress(0);
             }}
             whileTap={{ scale: 0.9 }}
-            className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-11 sm:h-11 bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center shadow-md hover:bg-white/60 transition-colors duration-300"
+            className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-11 sm:h-11 glass rounded-full flex items-center justify-center shadow-lg hover:glass-strong transition-all duration-300 text-slate-900 dark:text-white"
             aria-label="Previous slide"
           >
             <svg
@@ -197,7 +197,7 @@ const HeroSection: React.FC = () => {
               height="16"
               viewBox="0 0 24 24"
               fill="none"
-              stroke="#1a1a1a"
+              stroke="#0f172a"
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -213,7 +213,7 @@ const HeroSection: React.FC = () => {
               setProgress(0);
             }}
             whileTap={{ scale: 0.9 }}
-            className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-11 sm:h-11 bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center shadow-md hover:bg-white/60 transition-colors duration-300"
+            className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-11 sm:h-11 glass rounded-full flex items-center justify-center shadow-md hover:glass-strong transition-colors duration-300 text-slate-900 dark:text-white"
             aria-label="Next slide"
           >
             <svg
@@ -221,7 +221,7 @@ const HeroSection: React.FC = () => {
               height="16"
               viewBox="0 0 24 24"
               fill="none"
-              stroke="#1a1a1a"
+              stroke="#0f172a"
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -234,7 +234,7 @@ const HeroSection: React.FC = () => {
       </motion.div>
 
       {/* Dots Indicator */}
-      <div className="flex justify-center items-center gap-2 mt-4 sm:mt-6">
+      <div className="flex justify-center items-center gap-2 mt-4 sm:mt-6 glass-subtle rounded-full px-5 py-2.5 mx-auto w-fit shadow-sm">
         {slides.map((slide, idx) => (
           <motion.button
             key={slide.id}

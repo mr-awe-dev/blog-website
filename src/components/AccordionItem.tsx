@@ -18,21 +18,20 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
   const [isOpen, setIsOpen] = useState(defaultOpen);
 
   return (
-    <motion.div className="border-b border-gray-200" initial={false}>
+    <motion.div className="bg-transparent" initial={false}>
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
-        whileHover={{ backgroundColor: "rgba(0,0,0,0.02)" }}
         whileTap={{ scale: 0.99 }}
         transition={{ duration: 0.2 }}
-        className="w-full flex items-center justify-between py-4 sm:py-5 text-left px-2 rounded-lg"
+        className="w-full flex items-center justify-between py-4 sm:py-5 text-left px-4 sm:px-6 hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
       >
-        <span className="text-sm sm:text-base font-semibold text-gray-900 pr-4">
+        <span className="text-sm sm:text-base font-semibold text-slate-900 dark:text-white pr-4">
           {title}
         </span>
         <motion.span
           animate={{ rotate: isOpen ? 45 : 0 }}
           transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-          className="flex-shrink-0"
+          className="flex-shrink-0 text-primary"
         >
           <svg
             width="18"
@@ -58,8 +57,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
             transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
             className="overflow-hidden"
           >
-            {/* pt-2 ditambahkan agar ada jarak dari garis border atas */}
-            <div className="pb-5 sm:pb-6 flex flex-col md:flex-row gap-4 sm:gap-6 px-2 pt-2">
+            <div className="pb-5 sm:pb-6 flex flex-col md:flex-row gap-4 sm:gap-6 px-4 sm:px-6 pt-2 border-t border-slate-200/60 dark:border-slate-700/60">
               {/* Kolom Teks */}
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
@@ -71,7 +69,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
                 }}
                 className="md:w-2/3"
               >
-                <p className="text-xs sm:text-sm text-gray-500 leading-relaxed">
+                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                   {content}
                 </p>
               </motion.div>
@@ -88,12 +86,10 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
                   }}
                   className="w-full md:w-1/3"
                 >
-                  {/* Wrapper overflow-hidden SANGAT PENTING agar zoom tidak merusak rounded corner */}
-                  <div className="overflow-hidden rounded-lg shadow-sm">
+                  <div className="overflow-hidden rounded-lg shadow-sm border border-slate-200/60 dark:border-slate-700/60">
                     <ImageWithFallback
                       src={image}
                       alt={title}
-                      // Tinggi ditingkatkan: h-48 (mobile), h-56 (desktop) agar lebih user-friendly
                       className="w-full h-48 sm:h-56 md:h-48 lg:h-56"
                       style={{ objectFit: "cover" }}
                       zoomOnHover={true}
